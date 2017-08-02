@@ -1,0 +1,52 @@
+/*--------------------------------------------------------------
+## Bootstrap
+--------------------------------------------------------------*/
+
+// Core variables and mixins
+@import "../../../scss/bootstrap4/variables";
+@import "../../../scss/bootstrap4/mixins";
+@import "../../../scss/bootstrap4/custom";
+
+// Reset and dependencies
+@import "../../../scss/bootstrap4/normalize";
+@import "../../../scss/bootstrap4/print";
+
+// Core CSS
+@import "../../../scss/bootstrap4/reboot";
+@import "../../../scss/bootstrap4/type";
+@import "../../../scss/bootstrap4/images";
+@import "../../../scss/bootstrap4/code";
+@import "../../../scss/bootstrap4/grid";
+@import "../../../scss/bootstrap4/tables";
+@import "../../../scss/bootstrap4/forms";
+@import "../../../scss/bootstrap4/buttons";
+
+// Components
+@import "../../../scss/bootstrap4/transitions";
+@import "../../../scss/bootstrap4/dropdown";
+@import "../../../scss/bootstrap4/button-group";
+@import "../../../scss/bootstrap4/input-group";
+@import "../../../scss/bootstrap4/custom-forms";
+@import "../../../scss/bootstrap4/nav";
+@import "../../../scss/bootstrap4/navbar";
+@import "../../../scss/bootstrap4/card";
+@import "../../../scss/bootstrap4/breadcrumb";
+@import "../../../scss/bootstrap4/pagination";
+@import "../../../scss/bootstrap4/badge";
+@import "../../../scss/bootstrap4/jumbotron";
+@import "../../../scss/bootstrap4/alert";
+@import "../../../scss/bootstrap4/progress";
+@import "../../../scss/bootstrap4/media";
+@import "../../../scss/bootstrap4/list-group";
+@import "../../../scss/bootstrap4/responsive-embed";
+@import "../../../scss/bootstrap4/close";
+
+// Components w/ JavaScript
+@import "../../../scss/bootstrap4/modal";
+@import "../../../scss/bootstrap4/tooltip";
+@import "../../../scss/bootstrap4/popover";
+@import "../../../scss/bootstrap4/carousel";
+
+// Utility classes
+@import "../../../scss/bootstrap4/utilities";
+

@@ -1,0 +1,35 @@
+body {
+  background-color: $darkblue;
+  font-family: $font-main;
+  color: $paleyellow;
+  @include font-size(.9);
+  line-height: $line-height;
+
+  @media screen and (min-width: 700px) {
+    @include font-size(1);
+  }
+}
+
+#{headings()} {
+  clear: both;
+  color: $darkgray;
+  @include text-shadow($paleryellow 1px 1px)
+}
+
+@for $i from 1 to 7 {
+  h#{$i} {
+    font-size: 3em - ($i - 1)  * .2;
+    line-height: 200%;
+  }
+}
+
+a {
+  color: $lightorange;
+
+  &:hover,
+  &:focus:hover {
+
+    text-decoration: none;
+    color: darken($lightorange, 15);
+  }
+}
