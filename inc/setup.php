@@ -44,7 +44,7 @@ if ( ! function_exists( 'bootpass_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'primary' => __( 'Primary Menu', 'bootpass' ),
+			'primary' => __( 'Primary Menu', 'bootpass' ),//esc_html__( 'Primary Menu', 'bootpass' ),//
 		) );
 
 		/*

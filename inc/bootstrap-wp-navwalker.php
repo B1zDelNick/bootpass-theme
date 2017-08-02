@@ -12,6 +12,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+class Bootpass_Walker extends Walker_Nav_Menu {
+
+    function start_el(&$output, $item, $depth=0, $args=array(), $id = 0) {
+
+        $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+        $object = $item->object;
+        $type = $item->type;
+        $title = $item->title;
+        $description = $item->description;
+        $permalink = $item->url;
+
+        $output .= $indent . "<li class='" .  implode(" ", $item->classes) . "'>";
+
+        //Add SPAN if no Permalink
+        if( $permalink && $permalink != '#' ) {
+            $output .= '<a href="' . $permalink . '">';
+        } else {
+            $output .= '<span>';
+        }
+
+        $output .= $title;
+        if( $description != '' && $depth == 0 ) {
+            $output .= '<small class="description">' . $description . '</small>';
+        }
+        if( $permalink && $permalink != '#' ) {
+            $output .= '</a>';
+        } else {
+            $output .= '</span>';
+        }
+    }
+
+}
+
 /**
  * Class WP_Bootstrap_Navwalker
  * GitHub URI: https://github.com/twittem/wp-bootstrap-navwalker
@@ -60,6 +93,9 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
 		 * comparison that is not case sensitive. The strcasecmp() function returns
 		 * a 0 if the strings are equal.
 		 */
+
+        //$output .= "<li class=\" nav-link\">".esc_attr($item->label); return;
+
 		if ( strcasecmp( $item->attr_title, 'divider' ) == 0 && $depth === 1 ) {
 			$output .= $indent . '<li class="divider" role="presentation">';
 		} else if ( strcasecmp( $item->title, 'divider' ) == 0 && $depth === 1 ) {

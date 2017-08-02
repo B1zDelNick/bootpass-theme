@@ -27,13 +27,24 @@ $container = get_theme_mod( 'bootpass_container_type' );
 
 <div class="hfeed site" id="page">
 
-	<!-- ******************* The Navbar Area ******************* -->
+    <header id="first">
+        <div class="header-content">
+            <div class="inner">
+                <h1>What's New in Bootstrap 4</h1>
+                <h5 class="wow fadeIn text-normal wow fadeIn">A free, one-page theme to highlight the new features</h5>
+                <a href="#one" class="btn btn-primary-outline btn-xl page-scroll wow fadeInUp m-t-3">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ******************* The Navbar Area ******************* -->
 	<div class="wrapper-fluid wrapper-navbar" id="wrapper-navbar">
 
 		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
 		'bootpass' ); ?></a>
 
-		<nav class="navbar navbar-toggleable-md  navbar-inverse bg-inverse">
+		<!--<nav class="navbar navbar-toggleable-md  navbar-inverse bg-inverse">-->
+		<nav class="navbar fixed-top navbar-toggleable-sm bg-faded">
 
 		<?php if ( 'container' == $container ) : ?>
 			<div class="container">
@@ -62,17 +73,27 @@ $container = get_theme_mod( 'bootpass_container_type' );
 					} ?><!-- end custom logo -->
 
 				<!-- The WordPress Menu goes here -->
-				<?php wp_nav_menu(
-					array(
-						'theme_location'  => 'primary',
-						'container_class' => 'collapse navbar-collapse',
-						'container_id'    => 'navbarNavDropdown',
-						'menu_class'      => 'navbar-nav',
-						'fallback_cb'     => '',
-						'menu_id'         => 'main-menu',
-						'walker'          => new WP_Bootstrap_Navwalker(),
-					)
-				); ?>
+                <!--<div class="collapse navbar-collapse" id="navbarNavDropdown">-->
+				<?php
+                    wp_nav_menu(
+                        array(
+                            'theme_location'  => 'primary',
+                            'container_class' => 'collapse navbar-collapse',
+                            'container_id'    => 'navbarNavDropdown',
+                            'menu_class'      => 'navbar-nav',
+                            'menu_id'         => 'main-menu',
+                            //'container'       => 'ul',
+                            'fallback_cb'     => '',
+                            'walker'          => new WP_Bootstrap_Navwalker(),
+                        )
+                    );
+                ?>
+                <!--</div>-->
+
+                <?php
+                    //wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
+                ?>
+
 			<?php if ( 'container' == $container ) : ?>
 			</div><!-- .container -->
 			<?php endif; ?>
