@@ -13,7 +13,7 @@ $container = get_theme_mod( 'bootpass_container_type' );
 
 <?php get_sidebar( 'footerfull' ); ?>
 
-<div class="wrapper" id="wrapper-footer">
+<section id="footer">
 
 	<div class="<?php echo esc_attr( $container ); ?>">
 
@@ -47,9 +47,7 @@ $container = get_theme_mod( 'bootpass_container_type' );
 
 	</div><!-- container end -->
 
-</div><!-- wrapper end -->
-
-</div><!-- #page -->
+</section><!-- wrapper end -->
 
 <?php wp_footer(); ?>
 

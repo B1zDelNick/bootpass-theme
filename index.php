@@ -17,9 +17,9 @@ $sidebar_pos = get_theme_mod( 'bootpass_sidebar_position' );
 	<?php get_template_part( 'global-templates/hero', 'none' ); ?>
 <?php endif; ?>
 
-<div class="wrapper" id="wrapper-index">
+<section id="wrapper-index">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+	<div class="<?php echo esc_attr( $container ); ?> wow fadeInUp" id="content" tabindex="-1">
 
 		<div class="row">
 
@@ -68,7 +68,7 @@ $sidebar_pos = get_theme_mod( 'bootpass_sidebar_position' );
 
 	</div><!-- .row -->
 
-</div><!-- Container end -->
+</section><!-- Container end -->
 
 </div><!-- Wrapper end -->
 

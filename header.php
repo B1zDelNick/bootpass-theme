@@ -25,79 +25,73 @@ $container = get_theme_mod( 'bootpass_container_type' );
 
 <body <?php body_class(); ?>>
 
-<div class="hfeed site" id="page">
-
-    <header id="first">
-        <div class="header-content">
-            <div class="inner">
-                <h1>What's New in Bootstrap 4</h1>
-                <h5 class="wow fadeIn text-normal wow fadeIn">A free, one-page theme to highlight the new features</h5>
-                <a href="#one" class="btn btn-primary-outline btn-xl page-scroll wow fadeInUp m-t-3">Get Started</a>
-            </div>
+<header id="first">
+    <div class="header-content">
+        <div class="inner">
+            <h1>What's New in Bootstrap 4</h1>
+            <h5 class="wow fadeIn text-normal wow fadeIn">A free, one-page theme to highlight the new features</h5>
+            <a href="#one" class="btn btn-primary-outline btn-xl page-scroll wow fadeInUp m-t-3">Get Started</a>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- ******************* The Navbar Area ******************* -->
-	<div class="wrapper-fluid wrapper-navbar" id="wrapper-navbar">
+<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
+        'bootpass' ); ?></a>
 
-		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
-		'bootpass' ); ?></a>
+<!--<nav class="navbar navbar-toggleable-md  navbar-inverse bg-inverse">-->
+<nav class="navbar fixed-top navbar-toggleable-sm bg-faded">
 
-		<!--<nav class="navbar navbar-toggleable-md  navbar-inverse bg-inverse">-->
-		<nav class="navbar fixed-top navbar-toggleable-sm bg-faded">
+    <?php if ( 'container' == $container ) : ?>
+    <div class="container">
+        <?php endif; ?>
 
-		<?php if ( 'container' == $container ) : ?>
-			<div class="container">
-		<?php endif; ?>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span>☰</span>
+        </button>
 
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+        <!-- Your site title as branding in the menu -->
+        <?php if ( ! has_custom_logo() ) { ?>
 
-					<!-- Your site title as branding in the menu -->
-					<?php if ( ! has_custom_logo() ) { ?>
+    <?php if ( is_front_page() && is_home() ) : ?>
 
-						<?php if ( is_front_page() && is_home() ) : ?>
+        <h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 
-							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-							
-						<?php else : ?>
+    <?php else : ?>
 
-							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-						
-						<?php endif; ?>
-						
-					
-					<?php } else {
-						the_custom_logo();
-					} ?><!-- end custom logo -->
+        <a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
 
-				<!-- The WordPress Menu goes here -->
-                <!--<div class="collapse navbar-collapse" id="navbarNavDropdown">-->
-				<?php
-                    wp_nav_menu(
-                        array(
-                            'theme_location'  => 'primary',
-                            'container_class' => 'collapse navbar-collapse',
-                            'container_id'    => 'navbarNavDropdown',
-                            'menu_class'      => 'navbar-nav',
-                            'menu_id'         => 'main-menu',
-                            //'container'       => 'ul',
-                            'fallback_cb'     => '',
-                            'walker'          => new WP_Bootstrap_Navwalker(),
-                        )
-                    );
-                ?>
-                <!--</div>-->
+    <?php endif; ?>
 
-                <?php
-                    //wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
-                ?>
 
-			<?php if ( 'container' == $container ) : ?>
-			</div><!-- .container -->
-			<?php endif; ?>
+        <?php } else {
+            the_custom_logo();
+        } ?><!-- end custom logo -->
 
-		</nav><!-- .site-navigation -->
+        <!-- The WordPress Menu goes here -->
+        <!--<div class="collapse navbar-collapse" id="navbarNavDropdown">-->
+        <?php
+        wp_nav_menu(
+            array(
+                'theme_location'  => 'primary',
+                'container_class' => 'collapse navbar-collapse',
+                'container_id'    => 'navbarNavDropdown',
+                'menu_class'      => 'navbar-nav',
+                'menu_id'         => 'main-menu',
+                //'container'       => 'ul',
+                'fallback_cb'     => '',
+                'walker'          => new WP_Bootstrap_Navwalker(),
+            )
+        );
+        ?>
+        <!--</div>-->
 
-	</div><!-- .wrapper-navbar end -->
+        <?php
+        //wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
+        ?>
+
+        <?php if ( 'container' == $container ) : ?>
+    </div><!-- .container -->
+<?php endif; ?>
+
+</nav><!-- .site-navigation -->
+
